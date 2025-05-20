@@ -1,0 +1,193 @@
+.voice-assistant-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(163, 41, 197, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.voice-assistant-widget.minimized {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #2c3e50;
+    cursor: pointer;
+    position: relative;
+}
+
+.voice-assistant-widget.minimized::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("images/voiceA.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.voice-assistant-widget.minimized:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.voice-assistant-widget.minimized:hover::before {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.voice-assistant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    z-index: 2;
+}
+
+.voice-assistant-widget.minimized .voice-assistant-header {
+    border-radius: 50%;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.voice-assistant-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.voice-assistant-widget.minimized .voice-assistant-title {
+    display: none;
+}
+
+.voice-assistant-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.voice-assistant-widget.minimized .voice-assistant-toggle {
+    display: none;
+}
+
+.voice-assistant-content {
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.voice-assistant-widget.minimized .voice-assistant-content {
+    display: none;
+}
+
+.voice-assistant-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    overflow: hidden;
+}
+
+.voice-assistant-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.voice-assistant-messages {
+    margin-bottom: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 15px;
+    max-width: 80%;
+}
+
+.message.user {
+    background: #e3f2fd;
+    margin-left: auto;
+}
+
+.message.assistant {
+    background: #f5f5f5;
+    margin-right: auto;
+}
+
+.voice-assistant-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.voice-assistant-input input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.voice-button {
+    background: #9853be;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.voice-button:hover {
+    background: #d55fd7;
+}
+
+.voice-assistant-status {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
+.voice-assistant-widget.minimized .voice-button {
+    display: none;
+}
+
+.voice-assistant-widget.minimized .voice-assistant-status {
+    display: none;
+}
+
+/* Animación para el widget minimizado */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.voice-assistant-widget.minimized:hover {
+    animation: pulse 1s infinite;
+} 
